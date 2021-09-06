@@ -11,6 +11,7 @@ gem 'aws-sdk-s3', require: false
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'devise_token_auth'
 gem 'fast_jsonapi'
+gem 'mimemagic', '~> 0.3.10'
 gem 'pg'
 gem 'puma', '~> 3.11'
 gem 'pundit'
@@ -18,14 +19,13 @@ gem 'rack-cors'
 gem 'rails', '~> 6.0.0'
 gem 'rswag-api'
 gem 'rswag-ui'
-gem 'mimemagic', '~> 0.3.10'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'pry'
-  gem 'rswag-specs'
-  gem 'rspec-rails'
   gem 'dotenv-rails'
+  gem 'pry'
+  gem 'rspec-rails'
+  gem 'rswag-specs'
 end
 
 group :development do
@@ -39,6 +39,7 @@ group :development do
 end
 
 group :test do
+  gem 'simplecov', require: false
   gem 'capybara', '>= 2.15'
   gem 'database_cleaner'
   gem 'dox', require: false
@@ -48,5 +49,4 @@ group :test do
   gem 'pundit-matchers'
   gem 'rspec_junit_formatter'
   gem 'shoulda-matchers'
-  gem 'simplecov'
 end

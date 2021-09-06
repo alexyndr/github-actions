@@ -44,5 +44,3 @@ RSpec.configure do |config|
   # config.order = 'default'
   # config.color = true
 end
-
-

@@ -3,14 +3,14 @@ on:
   push:
     branches: [ feature/git-actions ]
   pull_request:
-    branches: [ develop ]
+    branches: ['*']
 
 jobs:
   test:
     runs-on: ubuntu-latest
     services:
       db:
-        image: postgres:12
+        image: postgres:latest
         env:
           POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
         ports:
@@ -29,7 +29,7 @@ jobs:
     - uses: borales/actions-yarn@v2.0.0
       with:
         cmd: install
-    - name: Build and Run tests
+    - name: Build
       env:
         DATABASE_URL: postgres://postgres:@localhost:5432/test
         RAILS_ENV: test
@@ -42,3 +42,9 @@ jobs:
         bundle install --jobs 4 --retry 3
         bundle exec rails db:prepare
         bundle exec rspec
+    - name: Upload coverage result
+      uses: actions/upload-artifact@master
+      if: always()
+      with:
+        name: coverage-report
+        path: coverage
