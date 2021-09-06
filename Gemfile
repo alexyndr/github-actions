@@ -18,6 +18,7 @@ gem 'rack-cors'
 gem 'rails', '~> 6.0.0'
 gem 'rswag-api'
 gem 'rswag-ui'
+gem 'mimemagic', '~> 0.3.10'
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
