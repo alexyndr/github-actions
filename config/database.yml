@@ -1,0 +1,26 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see Rails configuration guide
+  # https://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: <%= ENV['POSTGRES_USER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
+
+
+development:
+  <<: *default
+  database: todo_list_api_development
+
+test:
+  <<: *default
+  database: todo_list_api_test
+
+#   production:
+#     url: <%= ENV['DATABASE_URL'] %>
+
+production:
+  <<: *default
+  database: todo_list_api_production
+  username: todo_list_api
+  password: <%= ENV['TODO_LIST_API_DATABASE_PASSWORD'] %>
