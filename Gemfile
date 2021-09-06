@@ -39,7 +39,6 @@ group :development do
 end
 
 group :test do
-  gem 'simplecov', require: false
   gem 'capybara', '>= 2.15'
   gem 'database_cleaner'
   gem 'dox', require: false
@@ -49,4 +48,5 @@ group :test do
   gem 'pundit-matchers'
   gem 'rspec_junit_formatter'
   gem 'shoulda-matchers'
+  gem 'simplecov', require: false
 end

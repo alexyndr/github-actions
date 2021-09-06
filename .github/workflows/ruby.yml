@@ -29,6 +29,10 @@ jobs:
     - uses: borales/actions-yarn@v2.0.0
       with:
         cmd: install
+    - name: RuboCop Linter Action
+      uses: andrewmcodes/rubocop-linter-action@v3.3.0
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Build
       env:
         DATABASE_URL: postgres://postgres:@localhost:5432/test
